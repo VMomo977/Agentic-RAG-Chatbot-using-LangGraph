@@ -104,6 +104,19 @@ The application will start a Gradio web interface, accessible via your browser t
 
 ---
 
+## Example Human Questions to Tools Mapping
+This section provides examples of user questions that would trigger the various tools within the chatbot.
+
+- `get_sports()`: "Recommend me sports."
+
+- `get_skills_by_sport(sport: str)`: "What skills are needed for football?"
+
+- `get_document_answer(query: str)`: "How can I be successful in football based on documentations?"
+
+- `get_equipment_by_sport(sport: str)`: "What gears are needed for football?"
+
+---
+
 ## References and Citations
 
 **RAG Input References:**
