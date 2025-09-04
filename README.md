@@ -2,6 +2,7 @@
 
 This project is a prototype of an **Agentic RAG (Retrieval-Augmented Generation) chatbot**. The application demonstrates core agentic principles by autonomously deciding which tools to use to answer user queries, integrating a RAG pipeline to access document knowledge sources, and utilizing a public knowledge base via Google Search.
 
+# HuggingFace Space: [Agentic RAG Sport Advisor Chatbot](https://huggingface.co/spaces/martivarga/Chatbot)
 ---
 
 ## Core Concepts
