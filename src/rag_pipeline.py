@@ -5,6 +5,7 @@ from langchain_community.document_loaders import DirectoryLoader, UnstructuredPD
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 import os
+from dotenv import load_dotenv
 
 base_dir = Path(__file__).resolve().parent.parent
 chroma_db_path = str(base_dir / "chroma_db_folder/chroma_db_cohere")
@@ -15,6 +16,8 @@ chunk_overlap_ = 200
 # ---------------------------
 # --- Setup Cohere API ---
 # ---------------------------
+# Modify this load_dotenv in the future
+load_dotenv(dotenv_path=os.path.join(os.path.dirname(os.path.dirname(__file__)), ".env"))
 COHERE_API_KEY = os.getenv("COHERE_API_KEY")
 
 embeddings = CohereEmbeddings(
