@@ -1,20 +1,10 @@
----
-title: "Agentic RAG Sport Advisor Chatbot}"
-emoji: 💬
-colorFrom: yellow
-colorTo: purple
-sdk: gradio
-app_file: src/chatbot_nodes.py
-pinned: false
-license: cc-by-4.0
----
-
----
 
 # Agentic RAG Sport Advisor Chatbot
 
 This project is a prototype of an **Agentic RAG (Retrieval-Augmented Generation) chatbot**. The application demonstrates core agentic principles by autonomously deciding which tools to use to answer user queries, integrating a RAG pipeline to access document knowledge sources, and utilizing a public knowledge base via Google Search.
 
+---
+# HuggingFace Space: [Agentic RAG Sport Advisor Chatbot](https://huggingface.co/spaces/martivarga/Chatbot)
 ---
 
 ## Core Concepts
