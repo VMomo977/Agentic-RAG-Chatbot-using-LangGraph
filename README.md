@@ -1,7 +1,9 @@
+
 # Agentic RAG Sport Advisor Chatbot
 
 This project is a prototype of an **Agentic RAG (Retrieval-Augmented Generation) chatbot**. The application demonstrates core agentic principles by autonomously deciding which tools to use to answer user queries, integrating a RAG pipeline to access document knowledge sources, and utilizing a public knowledge base via Google Search.
 
+---
 # HuggingFace Space: [Agentic RAG Sport Advisor Chatbot](https://huggingface.co/spaces/martivarga/Chatbot)
 ---
 
@@ -43,7 +45,7 @@ Responsible for setting up the document retrieval system:
 - Loads PDF documents from `rag_docs/` using `DirectoryLoader`.
 - Splits documents into manageable chunks via `RecursiveCharacterTextSplitter`.
 - Uses **ChromaDB** as the local vector store for document chunks and embeddings.
-- Generates vector representations with `GoogleGenerativeAIEmbeddings`.
+- Generates vector representations with `CohereEmbeddings`.
 - Checks for an existing Chroma database to avoid re-processing documents on every run.
 
 ### Chatbot Logic and Tools (`chatbot_nodes.py`)
@@ -69,6 +71,7 @@ Defines the agent's behavior and tools:
 - Python 3.9+
 - pip
 - Google API Key
+- Cohere API Key
 
 ### Setup
 1. Clone the repository and navigate to the project directory.
@@ -78,10 +81,11 @@ Defines the agent's behavior and tools:
 pip install -r requirements.txt
 ```
 3. Place your PDF documents in the rag_docs/ directory.
-4. Create a .env file in the root directory and add your Google API key:
+4. Create a .env file in the root directory and add your Google API key and Cohere API Key:
 
 ```bash
 GOOGLE_API_KEY="your_api_key_here"
+COHERE_API_KEY="your_api_key_here"
 ```
 ### Execution
 Run the main application:
@@ -112,7 +116,12 @@ This section provides examples of user questions that would trigger the various 
 
 - `get_skills_by_sport(sport: str)`: "What skills are needed for football?"
 
-- `get_document_answer(query: str)`: "How can I be successful in football based on documentations?"
+- `get_document_answer(query: str)`:
+
+  - "How can I be successful in football based on documentations?"
+  - "How can influence a football match the location based on the documentation?"
+  - "What factors influence the judging in gymnastics based on the documentations?"
+  - "What are some specific deductions a gymnast might receive during a competition based on the documentations?"
 
 - `get_equipment_by_sport(sport: str)`: "What gears are needed for football?"
 

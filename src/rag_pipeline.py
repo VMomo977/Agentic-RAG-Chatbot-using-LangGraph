@@ -1,19 +1,29 @@
 from pathlib import Path
 from langchain_community.vectorstores import Chroma
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from langchain_cohere import CohereEmbeddings
 from langchain_community.document_loaders import DirectoryLoader, UnstructuredPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
+import os
+
 base_dir = Path(__file__).resolve().parent.parent
-chroma_db_path = "/chroma_db"
+chroma_db_path = str(base_dir / "chroma_db_folder/chroma_db_cohere")
 docs_dir = str(base_dir / "rag_docs/")
 chunk_size_ = 1000
 chunk_overlap_ = 200
 
+# ---------------------------
+# --- Setup Cohere API ---
+# ---------------------------
+COHERE_API_KEY = os.getenv("COHERE_API_KEY")
+
+embeddings = CohereEmbeddings(
+    cohere_api_key=COHERE_API_KEY, 
+    model="embed-v4.0"
+)
+
 def load_or_create_vector_store():
     vector_store_path = Path(chroma_db_path)
-
-    embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
 
     # Load existing store if present
     if vector_store_path.exists() and any(vector_store_path.iterdir()):
