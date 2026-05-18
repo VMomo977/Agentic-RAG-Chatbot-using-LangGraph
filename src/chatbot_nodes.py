@@ -320,11 +320,10 @@ def chatbot_interface(message, history):
 
 iface = gr.ChatInterface(
     fn=chatbot_interface,
-    chatbot=gr.Chatbot(height=500, type="messages",
+    chatbot=gr.Chatbot(height=500, 
                        value=[{"role": "assistant", "content": "Hello! I am your AI Sport Advisor. Ask me anything."}]),
     title="Agentic RAG Sport Advisor Chatbot",
     description="LangGraph chatbot integrated with RAG document retrieval and sports tools.",
-    type="messages",
 )
 
 if __name__ == "__main__":
